@@ -4,7 +4,7 @@ import "./App.css";
 import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
 function App() {
-  // test
+  // test 2
   return (
     <div className="App">
       <header>
