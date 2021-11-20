@@ -7,6 +7,8 @@ import {
   createNote as createNoteMutation,
   deleteNote as deleteNoteMutation,
 } from "./graphql/mutations";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Header from "./components/Header/Header";
 
 const initialFormState = { name: "", description: "" };
 
@@ -65,8 +67,23 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>My Notes App</h1>
+    <Router>
+      <div className="App">
+        <Header />
+        <Routes>
+          <Route path="/about" element={<div>About</div>} />
+          <Route path="/services" element={<div>Services</div>} />
+          <Route path="/products" element={<div>Products</div>} />
+          <Route path="/contact" element={<div>Contact</div>} />
+        </Routes>
+        <div
+          className="content"
+          style={{
+            height: "82vh",
+            backgroundColor: "lightgrey",
+          }}
+        ></div>
+        {/* <h1>My Notes App</h1>
       <input
         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
         placeholder="Note name"
@@ -90,9 +107,10 @@ function App() {
             {note.image && <img src={note.image} style={{ width: 400 }} />}
           </div>
         ))}
+      </div> */}
+        <AmplifySignOut />
       </div>
-      <AmplifySignOut />
-    </div>
+    </Router>
   );
 }
 
